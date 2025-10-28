@@ -76,15 +76,23 @@
         shadow-md shadow-accent-cyan
         px-5 py-2 cursor-pointer;
       }
+
       
       .eigenValue{
-        @apply p-5 bg-accent-cyan rounded-md text-white font-bold; 
+        @apply px-4 py-3 bg-accent-cyan rounded-md text-white font-bold; 
       }
       .eVectorContainer > div{
         @apply rounded-xl border-x-2 px-1 py-3 ;
       }
       .eigenVector{
-        @apply px-5 py-2 font-bold text-white bg-accent-cyan ;
+        @apply px-5 py-2 font-bold text-black ;
+      }
+
+      .RHS>div{
+        @apply border-x-2 rounded-2xl px-2 py-2;
+      }
+      .outputMatrix{
+        @apply px-5 py-2 font-bold font-mono text-accent-cyan;
       }
     </style>
 </head>
@@ -107,7 +115,9 @@
             </button>
         </div>
 
-        <section class="bg-bg-secondary mx-5 rounded-xl text-center border-border-primary border-x-2 border-b-2">
+        <section class="bg-bg-secondary mx-5 rounded-xl text-center border-border-primary border-x-2 border-b-2
+            shadow-gray-700 shadow-md
+        ">
             <!-- CYAN -->
             <section class="eigenValues">
                 <h2>Find Eigen Values, Eigen Vectors and Jordan Canonical form</h2>
@@ -138,9 +148,9 @@
                             Input Matrix
                         </h2>
                         <div class="displayMatrix
-                        grid 
+                        grid w-1/2 border-x-2  px-2 py-2 rounded-xl
                         grid-rows-3 grid-cols-3 gap-2 text-center
-                        w-2/4 mx-auto
+                        mx-auto
                         ">
                             <div class="A matrixCell">1</div>
                             <div class="A matrixCell">2</div>
@@ -159,7 +169,7 @@
                             Eigen Values
                         </h2>
 
-                        <div class="evContainer flex justify-evenly w-1/2 mx-auto my-3 text-center">
+                        <div class="evContainer flex justify-evenly items-center w-1/2 mx-auto my-3 text-center">
                             <div class="eigenValue">1</div>
                             <div class="eigenValue">2</div>
                             <div class="eigenValue">3</div>
@@ -194,14 +204,114 @@
                         <h2>
                             Jordan Block
                         </h2>
+
+                        <div class="displayMatrix my-3
+                        grid w-1/2 border-x-2 rounded-2xl px-2 py-2
+                        grid-rows-3 grid-cols-3 gap-2 text-center
+                        mx-auto
+                        ">
+                            <div class="JordanBlock matrixCell">1</div>
+                            <div class="JordanBlock matrixCell">2</div>
+                            <div class="JordanBlock matrixCell">3</div>
+                            <div class="JordanBlock matrixCell">4</div>
+                            <div class="JordanBlock matrixCell">5</div>
+                            <div class="JordanBlock matrixCell">6</div>
+                            <div class="JordanBlock matrixCell">7</div>
+                            <div class="JordanBlock matrixCell">8</div>
+                            <div class="JordanBlock matrixCell">9</div>
+                        </div>
                     </div>
 
+                    <div class="jordanCanonicalForm">
+
+                        <h2>
+                            Jordan Canonical Form
+                        </h2>
+                        <div class="flex my-5 w-3/4 mx-auto justify-evenly items-center">
+
+                            <div>
+                                <div class="
+                                grid border-x-2   px-2 py-2 rounded-2xl
+                                grid-rows-3 grid-cols-3 gap-2 text-center
+                                mx-auto
+                                ">
+                                    <div class="A outputMatrix">1</div>
+                                    <div class="A outputMatrix">2</div>
+                                    <div class="A outputMatrix">3</div>
+                                    <div class="A outputMatrix">4</div>
+                                    <div class="A outputMatrix">5</div>
+                                    <div class="A outputMatrix">6</div>
+                                    <div class="A outputMatrix">7</div>
+                                    <div class="A outputMatrix">8</div>
+                                    <div class="A outputMatrix">9</div>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-center items-center text-xl font-bold">
+                                =
+                            </div>
+
+                            <div class="RHS flex justify-evenly items-center gap-3">
+
+                                <div class="
+                        grid 
+                        grid-rows-3 grid-cols-3 gap-2 text-center
+                         mx-auto
+                        ">
+                                    <div class="A outputMatrix">1</div>
+                                    <div class="A outputMatrix">2</div>
+                                    <div class="A outputMatrix">3</div>
+                                    <div class="A outputMatrix">4</div>
+                                    <div class="A outputMatrix">5</div>
+                                    <div class="A outputMatrix">6</div>
+                                    <div class="A outputMatrix">7</div>
+                                    <div class="A outputMatrix">8</div>
+                                    <div class="A outputMatrix">9</div>
+                                </div>
+                                <div class="
+                        grid 
+                        grid-rows-3 grid-cols-3 gap-2 text-center
+                         mx-auto
+                        ">
+                                    <div class="A outputMatrix">1</div>
+                                    <div class="A outputMatrix">2</div>
+                                    <div class="A outputMatrix">3</div>
+                                    <div class="A outputMatrix">4</div>
+                                    <div class="A outputMatrix">5</div>
+                                    <div class="A outputMatrix">6</div>
+                                    <div class="A outputMatrix">7</div>
+                                    <div class="A outputMatrix">8</div>
+                                    <div class="A outputMatrix">9</div>
+                                </div>
+                                <div class="
+                        grid 
+                        grid-rows-3 grid-cols-3 gap-2 text-center
+                        mx-auto
+                        ">
+                                    <div class="A outputMatrix">1</div>
+                                    <div class="A outputMatrix">2</div>
+                                    <div class="A outputMatrix">3</div>
+                                    <div class="A outputMatrix">4</div>
+                                    <div class="A outputMatrix">5</div>
+                                    <div class="A outputMatrix">6</div>
+                                    <div class="A outputMatrix">7</div>
+                                    <div class="A outputMatrix">8</div>
+                                    <div class="A outputMatrix">9</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </section>
             <!-- BLUE -->
             <section class="linearEquations hidden">Linear equations</section>
         </section>
     </main>
+
+    <footer class="text-center my-3">
+        Made with 🤍 by Shaik Mahammed Sharief - 23BCE200088 
+    </footer>
 
     <script src="script.js"></script>
 </body>
