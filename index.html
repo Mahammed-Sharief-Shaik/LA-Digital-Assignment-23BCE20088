@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Linear Algebra Digital Assignment</title>
+    <style type="text/tailwindcss">
+        @theme {
+        /* --color-bg-primary: #0D1117;
+            --color-bg-secondary: #161B22;
+            --color-bg-navbar: #0B132B;
+            --color-accent-cyan: #00FFFF;
+            --color-accent-gold: #FFD700;
+            --color-accent-blue: #007BFF;
+            --color-accent-green: #00FF9C;
+            --color-text-primary: #E6EDF3;
+            --color-text-secondary: #A1A1AA;
+            --color-error: #FF5555;
+            --color-gradient: linear-gradient(135deg, #00FFFF, #FFD700); */
+        --color-bg-primary: #f8fafc;
+        --color-bg-secondary: #ffffff;
+        --color-bg-navbar: #e6eef7;
+        --color-accent-cyan: #06b6d4;
+        --color-accent-gold: #eab308;
+        --color-accent-blue: #2563eb;
+        --color-accent-green: #10b981;
+        --color-text-primary: #0f172a;
+        --color-text-secondary: #475569;
+        --color-error: #dc2626;
+        --color-gradient: linear-gradient(135deg, #06b6d4, #eab308);
+        /* Borders */
+        --color-border-primary: #cbd5e1;
+        --color-border-secondary: #e2e8f0;
+        --color-border-accent: #06b6d4;
+        --color-border-success: #10b981;
+        --color-border-warning: #eab308;
+        --color-border-error: #dc2626;
+      }
+      /* For Webkit browsers like Chrome, Safari, and Edge */
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* For Firefox */
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+      .capsule {
+        @apply text-shadow-2xs/50
+        hover:cursor-pointer
+        rounded-full px-5 py-2 bg-gray-400;
+      }
+      .insetShadow {
+        @apply inset-shadow-sm
+            inset-shadow-gray-700;
+      }
+
+      .inputContainer input {
+        @apply bg-accent-cyan px-5 py-2 rounded-md text-center placeholder-white
+        text-white;
+      }
+
+      .matrixCell{
+        @apply bg-accent-cyan px-5 py-2 rounded-md text-center text-white;
+      }
+
+      .btn{
+        @apply bg-gradient-to-br from-cyan-600 to-yellow-500
+        rounded-md 
+        hover:scale-102
+        active:scale-98
+        shadow-md shadow-accent-cyan
+        px-5 py-2 cursor-pointer;
+      }
+      
+      .eigenValue{
+        @apply p-5 bg-accent-cyan rounded-md text-white font-bold; 
+      }
+      .eVectorContainer > div{
+        @apply rounded-xl border-x-2 px-1 py-3 ;
+      }
+      .eigenVector{
+        @apply px-5 py-2 font-bold text-white bg-accent-cyan ;
+      }
+    </style>
+</head>
+
+<body class="bg-bg-primary">
+    <nav class="bg-bg-navbar">
+        <h1 class="title text-3xl py-2 font-mono shadow-2xs text-center shadow-white/90 text-text-primary">
+            Eigen Values and Eigen Vectors Calculator
+        </h1>
+    </nav>
+
+    <main>
+        <div
+            class="py-2 w-full bg-bg-secondary text-text-primary mt-2 border-border-primary border-y-2 flex justify-evenly">
+            <button class="capsule insetShadow capsule-1 text-shadow-accent-cyan">
+                Eigen Values and Eigen vector Calculator
+            </button>
+            <button class="capsule capsule-2 text-shadow-accent-blue">
+                System of Linear Equations Solver
+            </button>
+        </div>
+
+        <section class="bg-bg-secondary mx-5 rounded-xl text-center border-border-primary border-x-2 border-b-2">
+            <!-- CYAN -->
+            <section class="eigenValues">
+                <h2>Find Eigen Values, Eigen Vectors and Jordan Canonical form</h2>
+                <div class="grid inputContainer grid-rows-3 grid-cols-3 w-3/4 mx-auto mt-5 gap-5
+                border-x-2 rounded-3xl px-5 py-5
+                ">
+                    <input type="number" placeholder="A₁₁" id="ev1" />
+                    <input type="number" placeholder="A₁₂" id="ev2" />
+                    <input type="number" placeholder="A₁₃" id="ev3" />
+
+                    <input type="number" placeholder="A₂₁" id="ev4" />
+                    <input type="number" placeholder="A₂₂" id="ev5" />
+                    <input type="number" placeholder="A₂₃" id="ev6" />
+
+                    <input type="number" placeholder="A₃₁" id="ev7" />
+                    <input type="number" placeholder="A₃₂" id="ev8" />
+                    <input type="number" placeholder="A₃₃" id="ev9" />
+                </div>
+
+                <button id="submit-1" class="btn">
+                    Calculate
+                </button>
+
+                <div class="output">
+
+                    <div class="my-5 matrixShowDiv">
+                        <h2 class="my-3">
+                            Input Matrix
+                        </h2>
+                        <div class="displayMatrix
+                        grid 
+                        grid-rows-3 grid-cols-3 gap-2 text-center
+                        w-2/4 mx-auto
+                        ">
+                            <div class="A matrixCell">1</div>
+                            <div class="A matrixCell">2</div>
+                            <div class="A matrixCell">3</div>
+                            <div class="A matrixCell">4</div>
+                            <div class="A matrixCell">5</div>
+                            <div class="A matrixCell">6</div>
+                            <div class="A matrixCell">7</div>
+                            <div class="A matrixCell">8</div>
+                            <div class="A matrixCell">9</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2>
+                            Eigen Values
+                        </h2>
+
+                        <div class="evContainer flex justify-evenly w-1/2 mx-auto my-3 text-center">
+                            <div class="eigenValue">1</div>
+                            <div class="eigenValue">2</div>
+                            <div class="eigenValue">3</div>
+                        </div>
+                    </div>
+
+                    <div class="eigenVectors text-center">
+                        <h2>
+                            Eigen Vectors
+                        </h2>
+
+                        <div class="eVectorContainer flex justify-evenly w-1/2 mx-auto my-3 ">
+                            <div>
+                                <div class="eigenVector">1</div>
+                                <div class="eigenVector">2</div>
+                                <div class="eigenVector">2</div>
+                            </div>
+                            <div>
+                                <div class="eigenVector">1</div>
+                                <div class="eigenVector">2</div>
+                                <div class="eigenVector">2</div>
+                            </div>
+                            <div>
+                                <div class="eigenVector">1</div>
+                                <div class="eigenVector">2</div>
+                                <div class="eigenVector">2</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="jordanBlock">
+                        <h2>
+                            Jordan Block
+                        </h2>
+                    </div>
+
+                </div>
+            </section>
+            <!-- BLUE -->
+            <section class="linearEquations hidden">Linear equations</section>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
